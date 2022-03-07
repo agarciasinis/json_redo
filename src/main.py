@@ -22,6 +22,7 @@ def process_item(data):
 def process_pending_notifications():
     with urllib.request.urlopen(URL) as response:
         data = json_stream.load(response, persistent=False)
+
         for item in data:
             process_item(item)
 

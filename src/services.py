@@ -1,8 +1,16 @@
+from constans import NotificationType
 from customer import Customer
 
 
 def send_notification(customer: Customer):
-    print(customer.__dict__)
+    if customer.type == NotificationType.SMS and customer.can_send_sms():
+        send_sms(customer.phone, vars(customer))
+
+    elif customer.type == NotificationType.EMAIL and customer.can_send_email():
+        send_email(customer.email, vars(customer))
+
+    elif customer.type == NotificationType.POST and customer.can_send_post():
+        send_post(customer.url, vars(customer))
 
 
 def send_sms(phone: str, data: dict) -> None:
