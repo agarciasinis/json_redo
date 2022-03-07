@@ -18,12 +18,3 @@ class Customer:
 
     def has_url(self) -> bool:
         return self.url is not None
-
-    def can_send_sms(self):
-        return self.has_name() and self.has_phone()
-
-    def can_send_email(self):
-        return self.has_name() and self.has_email()
-
-    def can_send_post(self):
-        return self.has_name() and self.has_url()
