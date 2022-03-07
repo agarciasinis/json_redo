@@ -1,8 +1,8 @@
 import urllib.request
 import json_stream
-from customer import Customer
-from services import send_notification
 
+from actions import customer_notification
+from customer import Customer
 
 URL = 'https://raw.githubusercontent.com/UN-ICC/notifications-processor/master/notifications_log.json'
 
@@ -16,7 +16,7 @@ def process_item(data):
         type=data['type']
     )
 
-    send_notification(customer)
+    customer_notification.execute(customer)
 
 
 def process_pending_notifications():

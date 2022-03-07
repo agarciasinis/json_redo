@@ -1,6 +1,6 @@
 
 class Customer:
-    def __init__(self, name, email, phone, url, type):
+    def __init__(self, name: str, email: str, phone: str, url: str, type: str):
         self.name = name
         self.email = email
         self.phone = phone
@@ -18,3 +18,7 @@ class Customer:
 
     def has_url(self) -> bool:
         return self.url is not None
+
+    def to_dict(self) -> dict:
+        return vars(self)
+
