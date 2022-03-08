@@ -12,8 +12,14 @@ Install the following dependencies:
 1. pip install Django
 2. pip install urllib3
 3. pip install json_stream
+4. pip install pytest
 
 # Command `process_pending_notification`
 
 To execute the command: 
 1. python src/manage.py process_pending_notifications
+
+# Test
+To execute the tests: 
+1. cd src
+2. python -m pytest .\exercise\customer\tests\

@@ -19,5 +19,8 @@ class Customer:
     def has_url(self) -> bool:
         return self.url is not None
 
+    def has_type(self) -> bool:
+        return self.type is not None
+
     def to_dict(self) -> dict:
         return vars(self)

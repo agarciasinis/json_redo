@@ -5,7 +5,7 @@ from exercise.customer.models import Customer
 
 
 def execute(customer: Customer):
-    if not customer.has_name():
+    if not customer.has_name() or not customer.has_type():
         raise NotificationException
 
     if customer.type == NotificationType.SMS and customer.has_phone():
