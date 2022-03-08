@@ -5,6 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from django.core.management import BaseCommand
 from django.conf import settings
 from exercise.customer.actions import customer_notification
+from exercise.customer.exceptions import NotificationException
 from exercise.customer.models import Customer
 
 
@@ -23,4 +24,9 @@ class Command(BaseCommand):
                         url=item['url'],
                         type=item['type']
                     )
-                    thread.submit(customer_notification.execute, customer)
+                    data_result = thread.submit(customer_notification.execute, customer)
+
+                    try:
+                        data_result.result()
+                    except NotificationException:
+                        print(f"We can not send notifications: {customer.to_dict()}")
