@@ -65,7 +65,7 @@ class TestCustomerNotification:
         mock_send_post.assert_not_called()
 
     def test_raise_exception_when_name_is_none(
-                self, customer, mock_send_sms, mock_send_email, mock_send_post):
+           self, customer, mock_send_sms, mock_send_email, mock_send_post):
         customer.name = None
 
         with pytest.raises(NotificationException):
@@ -75,9 +75,14 @@ class TestCustomerNotification:
         mock_send_email.assert_not_called()
         mock_send_post.assert_not_called()
 
-    def test_raise_exception_when_type_is_none(
-                self, customer, mock_send_sms, mock_send_email, mock_send_post):
-        customer.type = None
+    @pytest.mark.parametrize('type', [
+        None,
+        'postal',
+    ])
+    def test_raise_exception_when_type_is_not_valid(
+            self, type, customer, mock_send_sms, mock_send_email,
+            mock_send_post):
+        customer.type = type
 
         with pytest.raises(NotificationException):
             customer_notification.execute(customer)
