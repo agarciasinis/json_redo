@@ -1,7 +1,7 @@
 import pytest
 
 from unittest.mock import patch
-from exercise.customer.models import Customer
+from customer.models import Customer
 
 
 @pytest.fixture
@@ -15,17 +15,17 @@ def customer():
 
 @pytest.fixture
 def mock_send_sms():
-    with patch('exercise.core.notifications.send_sms') as mock:
+    with patch('core.notifications.send_sms') as mock:
         yield mock
 
 
 @pytest.fixture
 def mock_send_email():
-    with patch('exercise.core.notifications.send_email') as mock:
+    with patch('core.notifications.send_email') as mock:
         yield mock
 
 
 @pytest.fixture
 def mock_send_post():
-    with patch('exercise.core.notifications.send_post') as mock:
+    with patch('core.notifications.send_post') as mock:
         yield mock

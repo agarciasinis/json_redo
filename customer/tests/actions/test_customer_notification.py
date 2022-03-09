@@ -1,8 +1,8 @@
 import pytest
 
-from exercise.customer.actions import customer_notification
-from exercise.customer.constans import NotificationType
-from exercise.customer.exceptions import NotificationException
+from customer.actions import customer_notification
+from customer.constans import NotificationType
+from customer.exceptions import NotificationException
 
 
 class TestCustomerNotification:

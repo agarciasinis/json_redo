@@ -1,7 +1,7 @@
-from exercise.core import notifications
-from exercise.customer.constans import NotificationType
-from exercise.customer.exceptions import NotificationException
-from exercise.customer.models import Customer
+from core import notifications
+from customer.constans import NotificationType
+from customer.exceptions import NotificationException
+from customer.models import Customer
 
 
 def execute(customer: Customer):

@@ -17,9 +17,8 @@ Install the following dependencies:
 # Command `process_pending_notification`
 
 To execute the command: 
-1. python src/manage.py process_pending_notifications
+1. python ./manage.py process_pending_notifications
 
 # Test
-To execute the tests: 
-1. cd src
-2. python -m pytest .\exercise\customer\tests\
+To execute the tests:
+2. python -m pytest .\customer\tests\

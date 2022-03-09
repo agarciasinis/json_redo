@@ -4,9 +4,9 @@ import json_stream
 from concurrent.futures import ThreadPoolExecutor
 from django.core.management import BaseCommand
 from django.conf import settings
-from exercise.customer.actions import customer_notification
-from exercise.customer.exceptions import NotificationException
-from exercise.customer.models import Customer
+from customer.actions import customer_notification
+from customer.exceptions import NotificationException
+from customer.models import Customer
 
 
 class Command(BaseCommand):

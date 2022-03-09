@@ -41,7 +41,7 @@ class TestCustomer:
 
         assert customer.has_url() is False
 
-    def test_to_dict_returns_dictionary_value(self, customer):
+    def test_to_dict_returns_dictionary(self, customer):
         customer_dict = customer.to_dict()
 
         assert customer_dict == {
